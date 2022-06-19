@@ -1,0 +1,5 @@
+"LockButton:Locked" = "Gesperrt";
+"LockButton:Unlocked" = "Entsperrt";
+"LockButton:Can’t unlock" = "Kann nicht entsperren";
+"LockButton:Cancel" = "Abbrechen";
+"LockButton:Unlock?" = "Entsperren?";
