@@ -1,6 +1,6 @@
 //
 //  isLockedAppStorageKey.swift
-//  LockPackage
+//  LockApp
 //
 //  Created by Wolf Dieter Dallinger on 30.05.22.
 //  Copyright © 2022 Wolf Dieter Dallinger. All rights reserved.

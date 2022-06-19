@@ -1,6 +1,6 @@
 //
 //  LockButtonLabel.swift
-//  LockPackage
+//  LockApp
 //
 //  Created by Wolf Dieter Dallinger on 04.06.22.
 //  Copyright © 2022 Wolf Dieter Dallinger. All rights reserved.

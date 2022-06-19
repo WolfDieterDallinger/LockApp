@@ -86,8 +86,6 @@ Feel free to help localizing it to more languages if this modul suits your needs
 - ``IsUnlocked``
 - ``unlockOnFirstStart()``
 
-> Note: As of June 2022 DocC does not handel extensions to external symbols so  is not properly included in this documentation, but you can access the documentation using quick help.
-
 ### Lock Button
 
 - ``LockButton``

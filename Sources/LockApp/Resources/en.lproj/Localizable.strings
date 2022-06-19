@@ -1,5 +1,5 @@
 "LockButton:Locked" = "Locked";
-"LockButton:Unlocked" = "Unlocked"
+"LockButton:Unlocked" = "Unlocked";
 "LockButton:Can’t unlock" = "Can’t unlock";
 "LockButton:Cancel" = "Cancel";
 "LockButton:Unlock?" = "Unlock?";
