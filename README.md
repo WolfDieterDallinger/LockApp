@@ -21,4 +21,4 @@ A Swift package with a Swift modul to lock and unlock an app using `SwiftUI`.
 
 ## Test App
 
-* [Test app](WolfDieterDallinger/LockAppTest)
+* [Test app](https://github.com/WolfDieterDallinger/LockAppTest)
