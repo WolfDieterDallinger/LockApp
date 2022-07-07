@@ -26,14 +26,14 @@ struct MyView: View {
 }
 ```
 
-To use unlocked as default value use the `View` method `unlockOnFirstStart()`. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
+To use unlocked as default value use the `View` method `isUnlockedByDefault()`. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
 
 ```swift
 MyView()
-    .unlockOnFirstStart()
+    .isUnlockedByDefault()
 ```
 
-> Note: As of June 2022 DocC does not handle extensions to external symbols so `unlockOnFirstStart()` is not properly included in this documentation, but you can access the documentation using quick help (right click on symbol > show quick help).
+> Note: As of June 2022 DocC does not handle extensions to external symbols so `isUnlockedByDefault()` is not properly included in this documentation, but you can access the documentation using quick help (right click on symbol > show quick help).
 
 ### LockButton
 
@@ -84,7 +84,7 @@ Feel free to help localizing it to more languages if this modul suits your needs
 
 - ``IsLocked``
 - ``IsUnlocked``
-- ``unlockOnFirstStart()``
+- ``isUnlockedByDefault()``
 
 ### Lock Button
 

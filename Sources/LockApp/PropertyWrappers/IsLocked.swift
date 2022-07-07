@@ -22,14 +22,14 @@ import SwiftUI
 /// }
 /// ```
 @propertyWrapper public struct IsLocked: DynamicProperty {
-    @Environment(\.isLockedDefault) private var isLockedDefault
+    @Environment(\.isLockedByDefault) private var isLockedByDefault
     @AppStorage(isLockedAppStorageKey) private var isLocked: Bool?
     
     public init() { } // public because it is a package!
     
     public var wrappedValue: Bool {
         get {
-            isLocked ?? isLockedDefault
+            isLocked ?? isLockedByDefault
         }
         nonmutating set {
             isLocked = newValue
@@ -38,7 +38,7 @@ import SwiftUI
  
     public var projectedValue: Binding<Bool> {
         Binding(
-            get: { isLocked ?? isLockedDefault },
+            get: { isLocked ?? isLockedByDefault },
             set: { isLocked = $0 }
         )
     }

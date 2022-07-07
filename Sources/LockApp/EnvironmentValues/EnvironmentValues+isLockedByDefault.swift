@@ -1,5 +1,5 @@
 //
-//  EnvironmentValues+isLockedDefault.swift
+//  EnvironmentValues+isLockedByDefault.swift
 //  LockApp
 //
 //  Created by Wolf Dieter Dallinger on 30.05.22.
@@ -18,7 +18,7 @@ extension EnvironmentValues {
     /// Default value is true.
     ///
     /// Only for internal use.
-    var isLockedDefault: Bool {
+    var isLockedByDefault: Bool {
         get { self[MyEnvironmentKey.self] }
         set { self[MyEnvironmentKey.self] = newValue }
     }
