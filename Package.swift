@@ -15,7 +15,7 @@ let package = Package(
             targets: ["LockApp"]),
     ],
     dependencies: [
-        //.package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
     ],
     targets: [
         .target(

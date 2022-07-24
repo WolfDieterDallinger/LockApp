@@ -8,5 +8,5 @@
 
 /// The `isLocked` key for `AppStorage`/`UserDefaults`.
 ///
-/// You can also use this key for the `Settings.bundle`.
+/// You can also use this key for the `Settings.bundle`. The value will not change in future versions.
 public let isLockedAppStorageKey = "F1C7178F-6A08-4D89-8187-1965360F603C"

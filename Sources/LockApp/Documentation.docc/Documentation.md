@@ -33,7 +33,7 @@ MyView()
     .isUnlockedByDefault()
 ```
 
-> Note: As of June 2022 DocC does not handle extensions to external symbols so `isUnlockedByDefault()` is not properly included in this documentation, but you can access the documentation using quick help (right click on symbol > show quick help).
+> Note: As of July 2022 DocC does not handle extensions to external symbols so `isUnlockedByDefault()` is not properly included in this documentation, but you can access the documentation using quick help (right click on symbol > show quick help).
 
 ### LockButton
 
@@ -61,7 +61,7 @@ MyView()
     .unlockWithoutAuthentication()
 ```
      
-> Note: As of June 2022 DocC does not handle extensions to external symbols so `unlockWithoutAuthentication()` and `unlockWithoutAuthenticationIfPasswordNotSet()` are not properly included in this documentation, but you can access the documentation using quick help (right click on symbol > show quick help).
+> Note: As of July 2022 DocC does not handle extensions to external symbols so `unlockWithoutAuthentication()` and `unlockWithoutAuthenticationIfPasswordNotSet()` are not properly included in this documentation, but you can access the documentation using quick help (right click on symbol > show quick help).
 
 ### Access to the app property
 
