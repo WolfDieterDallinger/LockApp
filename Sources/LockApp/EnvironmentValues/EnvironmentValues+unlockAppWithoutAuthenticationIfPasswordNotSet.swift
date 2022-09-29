@@ -1,5 +1,5 @@
 //
-//  EnvironmentValues+isLockedByDefault.swift
+//  EnvironmentValues+unlockAppWithoutAuthenticationIfPasswordNotSet.swift
 //  LockApp
 //
 //  Created by Wolf Dieter Dallinger on 30.05.22.
@@ -9,16 +9,16 @@
 import SwiftUI
 
 private struct MyEnvironmentKey: EnvironmentKey {
-    static var defaultValue = true
+    static var defaultValue = false
 }
 
 extension EnvironmentValues {
-    /// The `EnvironmentKey` used by the `View` method `unlockOnFirstStart()`, the `PropertyWrapper` `IsLocked` and the `PropertyWrapper` `IsNotLocked`.
+    /// The `EnvironmentKey` used by the `View` method `unlockAppWithoutAuthenticationIfPasswordNotSet()` and the `LockAppButton`.
     ///
-    /// Default value is true.
+    /// Default value is false.
     ///
     /// Only for internal use.
-    var isLockedByDefault: Bool {
+    var unlockAppWithoutAuthenticationIfPasswordNotSet: Bool {
         get { self[MyEnvironmentKey.self] }
         set { self[MyEnvironmentKey.self] = newValue }
     }

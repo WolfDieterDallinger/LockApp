@@ -1,5 +1,5 @@
-"LockButton:Locked" = "Locked";
-"LockButton:Unlocked" = "Unlocked";
-"LockButton:Can’t unlock" = "Can’t unlock";
-"LockButton:Cancel" = "Cancel";
-"LockButton:Unlock?" = "Unlock?";
+"LockAppButton:Locked" = "Locked";
+"LockAppButton:Unlocked" = "Unlocked";
+"LockAppButton:Can’t unlock" = "This app can’t be unlocked.";
+"LockAppButton:Cancel" = "Cancel";
+"LockAppButton:Unlock?" = "Unlock this app?";

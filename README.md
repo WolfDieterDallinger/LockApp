@@ -25,4 +25,4 @@ Versions below 1.0.0 are in beta stage. Their content is subject to changes with
 
 ## Test App
 
-* [Test app](https://github.com/WolfDieterDallinger/LockAppTest)
+* [Test app](https://github.com/WolfDieterDallinger/LockApp/Sources/LockAppTest)

@@ -1,5 +1,5 @@
 //
-//  View+isUnlockedByDefault().swift
+//  View+appIsUnlockedByDefault().swift
 //  LockApp
 //
 //  Created by Wolf Dieter Dallinger on 30.05.22.
@@ -8,10 +8,10 @@
 
 import SwiftUI
 
-struct IsUnlockedByDefault: ViewModifier {
+struct AppIsUnlockedByDefault: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .environment(\.isLockedByDefault, false)
+            .environment(\.appIsLockedByDefault, false)
     }
 }
 
@@ -19,7 +19,7 @@ public extension View {
     /// The app is unlocked by default.
     ///
     /// For security reasons the app is locked by default. Use this `View` method to make the app being unlock the app on its first start.
-    func isUnlockedByDefault() -> some View {
-        modifier(IsUnlockedByDefault())
+    func appIsUnlockedByDefault() -> some View {
+        modifier(AppIsUnlockedByDefault())
     }
 }

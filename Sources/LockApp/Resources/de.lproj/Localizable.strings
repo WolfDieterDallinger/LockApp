@@ -1,5 +1,5 @@
-"LockButton:Locked" = "Gesperrt";
-"LockButton:Unlocked" = "Entsperrt";
-"LockButton:Can’t unlock" = "Kann nicht entsperren";
-"LockButton:Cancel" = "Abbrechen";
-"LockButton:Unlock?" = "Entsperren?";
+"LockAppButton:Locked" = "Gesperrt";
+"LockAppButton:Unlocked" = "Entsperrt";
+"LockAppButton:Can’t unlock" = "Diese App kann nicht entsperrt werden.";
+"LockAppButton:Cancel" = "Abbrechen";
+"LockAppButton:Unlock?" = "Diese App entsperren?";

@@ -1,71 +1,71 @@
 # ``LockApp``
 
-A Swift modul to lock and unlock an app using `SwiftUI`.
+A Swift framework to lock and unlock an app using `SwiftUI`.
 
 ## Overview
 
-This modul enables:
+This framework enables:
 
-- A persisting app property meaning whether your app is locked or unlocked.
-- Access to this property with the property wrappers `IsLocked` and `IsUnlocked`.
+- A persisting dynamic property meaning whether your app is locked or unlocked.
+- Access to this property with the PropertyWrapper ``AppIsLocked``.
 - A lock button to lock and unlock your app using the system dialogue for authentication.
 - View modifiers for customization.
 - Security by design.
 
 ### Dynamic Properties
 
-Use the property wrappers ``IsLocked`` and ``IsUnlocked`` to create dynamic properties and access the lock mode with the type `Bool`. Default value is locked (secure by design).
+Use the PropertyWrapper ``AppIsLocked`` to create dynamic properties and access the lock mode with the type `Bool`. Default value is locked (secure by design).
 
 ```swift
 struct MyView: View {
-    @IsLocked private var isLocked
+    @AppIsLocked private var appIsLocked
     
     var body: some View {
-        Text(isLocked ? "This app is locked." : "This app is unlocked.")
+        Text(appIsLocked ? "App is locked." : "App is unlocked.")
     }
 }
 ```
 
-To use unlocked as default value use the `View` method `isUnlockedByDefault()`. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
+To use unlocked as default value use the `View` method `appIsUnlockedByDefault()`. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
 
 ```swift
 MyView()
-    .isUnlockedByDefault()
+    .appIsUnlockedByDefault()
 ```
 
-> Note: As of July 2022 DocC does not handle extensions to external symbols so `isUnlockedByDefault()` is not properly included in this documentation, but you can access the documentation using quick help (right click on symbol > show quick help).
+> Note: As of July 2022 DocC does not handle extensions to external symbols so `appIsUnlockedByDefault()` is not properly included in this documentation. But you can access the documentation using quick help (right click on symbol > show quick help).
 
-### LockButton
+### LockAppButton
 
-Use the `LockButton` for the user to lock and unlock. To unlock the `LockButton` prompts the user the system dialogue for authentication, i. e. password, TouchID or FaceID.
+Use the ``LockAppButton`` for the user to lock and unlock. To unlock the ``LockAppButton`` prompts the user the system dialogue for authentication, i. e. password, TouchID or FaceID.
 
 ```swift
 struct MyView: View {
     var body: some View {
-        LockButton()
+        LockAppButton()
     }
 }
 ```
 
-If no password is set, the `LockButton` does not unlock (secure by design). You can change this with the `View` method `unlockWithoutAuthenticationIfPasswordNotSet()`. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
+If no password is set, the ``LockAppButton`` does not unlock (secure by design). You can change this with the `View` method ``unlockAppWithoutAuthenticationIfPasswordNotSet()``. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
 
 ```swift
 MyView()
-    .unlockWithoutAuthenticationIfPasswordNotSet()
+    .unlockAppWithoutAuthenticationIfPasswordNotSet()
 ```
         
-The `LockButton` unlocks without password prompt if the `View` method `unlockWithoutAuthentication()` is applied. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
+The ``LockAppButton`` unlocks without password prompt if the `View` method ``unlockAppWithoutAuthentication()`` is applied. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
 
 ```swift
 MyView()
-    .unlockWithoutAuthentication()
+    .unlockAppWithoutAuthentication()
 ```
      
-> Note: As of July 2022 DocC does not handle extensions to external symbols so `unlockWithoutAuthentication()` and `unlockWithoutAuthenticationIfPasswordNotSet()` are not properly included in this documentation, but you can access the documentation using quick help (right click on symbol > show quick help).
+> Note: As of July 2022 DocC does not handle extensions to external symbols so ``unlockAppWithoutAuthentication()`` and ``unlockAppWithoutAuthenticationIfPasswordNotSet()`` are not properly included in this documentation. But you can access the documentation using quick help (right click on symbol > show quick help).
 
 ### Access to the app property
 
-Use the modul constant ``isLockedAppStorageKey`` or its value as key to access the isLocked property via [`AppStorage`](https://developer.apple.com/documentation/swiftui/appstorage/) or [`UserDefaults`](https://developer.apple.com/documentation/foundation/userdefaults). The value will not change in future versions.
+Use the framework constant ``appIsLockedAppStorageKey`` or its value as key to access the appIsLocked property via [`AppStorage`](https://developer.apple.com/documentation/swiftui/appstorage/) or [`UserDefaults`](https://developer.apple.com/documentation/foundation/userdefaults). This value will not change in future versions.
 
 This allows you to set and get the value in the app preferences.
 
@@ -82,16 +82,15 @@ Feel free to help localizing it to more languages if this modul suits your needs
 
 ### Propert Wrappers and Default Value
 
-- ``IsLocked``
-- ``IsUnlocked``
+- ``AppIsLocked``
 - ``isUnlockedByDefault()``
 
 ### Lock Button
 
-- ``LockButton``
-- ``unlockWithoutAuthenticationIfPasswordNotSet()``
-- ``unlockWithoutAuthentication()``
+- ``LockAppButton``
+- ``unlockAppWithoutAuthenticationIfPasswordNotSet()``
+- ``unlockAppWithoutAuthentication()``
 
 ### App Storage Key
 
-- ``isLockedAppStorageKey``
+- ``appIsLockedAppStorageKey``
