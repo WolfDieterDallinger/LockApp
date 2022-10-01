@@ -18,7 +18,7 @@ struct IfAppIsUnlocked: ViewModifier {
 }
 
 public extension View {
-    /// Shows the `View`if and only if the app is unlocked.
+    /// Shows the `View` if and only if the app is unlocked.
     func ifAppIsUnlocked() -> some View {
         modifier(IfAppIsUnlocked())
     }
