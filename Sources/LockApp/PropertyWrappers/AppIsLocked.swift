@@ -24,24 +24,20 @@ import SwiftUI
 ///
 /// - Note: If you need a `Binding` with inverted boolean value take a look at the operator ! in the Framework [BindingHelper](https://github.com/WolfDieterDallinger/BindingHelper).
 @propertyWrapper public struct AppIsLocked: DynamicProperty {
-    @Environment(\.appIsLockedByDefault) private var appIsLockedByDefault
     @AppStorage(appIsLockedAppStorageKey) private var appIsLocked: Bool?
+    @Environment(\.appIsLockedByDefault) private var appIsLockedByDefault
     
-    public init() { } // public because it is a package!
+    public init() { }
     
     public var wrappedValue: Bool {
-        get {
-            appIsLocked ?? appIsLockedByDefault
-        }
-        nonmutating set {
-            appIsLocked = newValue
-        }
+        get {  appIsLocked ?? appIsLockedByDefault }
+        nonmutating set { appIsLocked = newValue }
     }
  
     public var projectedValue: Binding<Bool> {
         Binding(
-            get: { appIsLocked ?? appIsLockedByDefault },
-            set: { appIsLocked = $0 }
+            get: { wrappedValue },
+            set: { wrappedValue = $0 }
         )
     }
 }
