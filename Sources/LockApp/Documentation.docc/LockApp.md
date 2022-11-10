@@ -65,9 +65,9 @@ MyView()
 
 ### Convenience ViewMofifiers and View extensions
 
-The View extensions ``ìfAppIsUnlocked()`` shows the `View` if and only if the app is unlocked.
+The View extensions ``ifAppIsUnlocked()`` shows the `View` if and only if the app is unlocked.
 
-> Note: As of October 2022 DocC does not handle extensions to external symbols so ``ìfAppIsUnlocked()`` is not properly included in this documentation. But you can access the documentation using quick help (right click on symbol > show quick help).
+> Note: As of October 2022 DocC does not handle extensions to external symbols so ``ifAppIsUnlocked()`` is not properly included in this documentation. But you can access the documentation using quick help (right click on symbol > show quick help).
 
 ### Access to the app property
 
@@ -99,7 +99,7 @@ Feel free to help localizing it to more languages if this framework suits your n
 
 ### Convenience ViewMofifiers and View extensions
 
-- ``ìfAppIsUnlocked()``
+- ``ifAppIsUnlocked()``
 
 ### App Storage Key
 
