@@ -9,13 +9,23 @@
 import LocalAuthentication
 import SwiftUI
 
-/// A `SwiftUI` button to lock and unlock your app.
-///
-/// To unlock this button uses the system dialog to authenticate you with password, TouchID or FaceID.
-///
-/// If no password is set this button denies to unlock for security reasons. Use the `View` method `unlockAppWithoutAuthenticationIfPasswordNotSet()` to allow this button to unlock in this case without authentication.
-///
-/// Use the `View` method `unlockAppWithoutAuthentication()` to allow this button to unlock without authentication regardless whether a password is set or not.
+/**
+ A button to lock and unlock an app using user authentication.
+
+ To unlock the app this button uses the system dialog to authenticate the user with password, TouchID or FaceID.
+
+ ```swift
+ struct MyView: View {
+     var body: some View {
+         LockAppButton()
+     }
+ }
+ ```
+
+ For security reasons this button does not unlock the app if the password is not set. Use the `View` method ``unlockAppWithoutAuthenticationIfPasswordNotSet()`` high enough in the view hierarchy to customize this button to unlock the app without authentication if the password is not set.
+
+ For security reasons this button does only unlock the app with authentication. Use the `View` method ``unlockAppWithoutAuthentication()`` high enough in the view hierarchy to customize this button to unlock the app without authentication.
+ */
 public struct LockAppButton: View {
     @AppIsLocked private var appIsLocked
     @Environment(\.unlockAppWithoutAuthenticationIfPasswordNotSet) private var unlockAppWithoutAuthenticationIfPasswordNotSet

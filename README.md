@@ -1,6 +1,6 @@
 # LockApp
 
-A Swift package with a Swift modul to lock and unlock an app using `SwiftUI`.
+A Swift package with a Swift framework to lock and unlock an app using `SwiftUI`.
 
 ![iOS 15 plus](https://img.shields.io/badge/iOS-15-success.svg) ![macOS 12 plus](https://img.shields.io/badge/macOS-12-success.svg) ![Swift Package Manager](https://img.shields.io/badge/SwiftPackageManager-OK-success.svg)
 

@@ -15,7 +15,7 @@ let package = Package(
             targets: ["LockApp"]),
     ],
     /*
-     To generate static documentation in a deleted docs directory uncomment swift-docc-plugin in dependencies and enter with appropriate directory in terminal:
+     To generate static documentation in a deleted ./docs directory enter with appropriate directory in terminal:
      
      cd ~/Documents/Apps/RemoteSwiftPackages/LockApp
      swift package --allow-writing-to-directory ./docs generate-documentation --target LockApp --disable-indexing --transform-for-static-hosting --hosting-base-path LockApp --output-path ./docs

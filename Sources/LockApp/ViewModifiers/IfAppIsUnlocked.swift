@@ -1,5 +1,5 @@
 //
-//  View+ifAppIsUnlocked().swift
+//  IfAppIsUnlocked().swift
 //  LockApp
 //
 //  Created by Wolf Dieter Dallinger on 28.09.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IfAppIsUnlocked: ViewModifier {
+fileprivate struct IfAppIsUnlocked: ViewModifier {
     @AppIsLocked private var appIsLocked
 
     func body(content: Content) -> some View {
@@ -18,7 +18,14 @@ struct IfAppIsUnlocked: ViewModifier {
 }
 
 public extension View {
-    /// Shows the `View` if and only if the app is unlocked.
+    /**
+     A `View` method to show the `View` only if the app is unlocked.
+     
+     ```swift
+     MyView()
+         .ifAppIsUnlocked()
+     ```
+     */
     func ifAppIsUnlocked() -> some View {
         modifier(IfAppIsUnlocked())
     }

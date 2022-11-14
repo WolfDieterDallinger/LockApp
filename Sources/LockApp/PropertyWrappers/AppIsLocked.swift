@@ -8,21 +8,23 @@
 
 import SwiftUI
 
-/// A `PropertyWrapper` for a dynamic property to access whether the app is locked.
-///
-/// Usage:
-///
-/// ```swift
-/// struct MyView: View {
-///     @AppIsLocked private var appIsLocked
-///
-///     var body: some View {
-///         Text(appIsLocked ? "This app is locked." : "This app is unlocked.")
-///     }
-/// }
-/// ```
-///
-/// - Note: If you need a `Binding` with inverted boolean value take a look at the operator ! in the Framework [BindingHelper](https://github.com/WolfDieterDallinger/BindingHelper).
+/**
+ A [property wrapper](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID617) for a dynamic property to access a persistently stored state whether an app is locked or not.
+ 
+ ```swift
+ struct MyView: View {
+     @AppIsLocked private var appIsLocked
+
+     var body: some View {
+         Text(appIsLocked ? "This app is locked." : "This app is unlocked.")
+     }
+ }
+ ```
+
+ For security reasons the app is locked by default. Use the `View` method ``LockAppButton/appIsUnlockedByDefault()`` high enough in the view hierarchy to customize the app to be unlocked by default.
+
+ - Note: If you need a `Binding` with inverted boolean value use the operator ! from the Framework [BindingHelper](https://github.com/WolfDieterDallinger/BindingHelper).
+ */
 @propertyWrapper public struct AppIsLocked: DynamicProperty {
     @AppStorage(appIsLockedAppStorageKey) private var appIsLocked: Bool?
     @Environment(\.appIsLockedByDefault) private var appIsLockedByDefault

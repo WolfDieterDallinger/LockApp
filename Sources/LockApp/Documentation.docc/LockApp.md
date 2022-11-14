@@ -4,40 +4,41 @@ A Swift framework to lock and unlock an app using `SwiftUI`.
 
 ## Overview
 
-This framework enables:
+This framework offers:
 
-- A persisting dynamic property meaning whether your app is locked or unlocked.
-- Access to this property with the PropertyWrapper ``AppIsLocked``.
-- A lock button to lock and unlock your app using the system dialogue for authentication.
-- View modifiers for customization.
+- A [property wrapper](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID617) for a dynamic property to access a persistently stored state whether an app is locked or not.
+- A button to lock and unlock an app using user authentication.
+- `ViewModifier`s for customization.
+- Convenience `ViewModifier`s.
+- `AppStorage` Key.
+- Localization.
 - Security by design.
 
-### Dynamic Properties
+This framework is part of a swift package which can be found [here](https://github.com/WolfDieterDallinger/LockApp).
 
-Use the PropertyWrapper ``AppIsLocked`` to create dynamic properties and access the lock mode with the type `Bool`. Default value is locked (secure by design).
+### Property Wrapper AppIsLocked
+
+``AppIsLocked`` is a [property wrapper](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID617) for a dynamic property to access a persistently stored state whether an app is locked or not.
 
 ```swift
 struct MyView: View {
     @AppIsLocked private var appIsLocked
-    
+
     var body: some View {
-        Text(appIsLocked ? "App is locked." : "App is unlocked.")
+        Text(appIsLocked ? "This app is locked." : "This app is unlocked.")
     }
 }
 ```
 
-To use unlocked as default value use the `View` method `appIsUnlockedByDefault()`. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
+For security reasons the app is locked by default. Use the `View` method ``LockAppButton/appIsUnlockedByDefault()`` high enough in the view hierarchy to customize the app to be unlocked by default.
 
-```swift
-MyView()
-    .appIsUnlockedByDefault()
-```
-
-> Note: As of October 2022 DocC does not handle extensions to external symbols so ``appIsUnlockedByDefault()`` is not properly included in this documentation. But you can access the documentation using quick help (right click on symbol > show quick help).
+- Note: If you need a `Binding` with inverted boolean value use the operator ! from the Framework [BindingHelper](https://github.com/WolfDieterDallinger/BindingHelper).
 
 ### LockAppButton
 
-Use the ``LockAppButton`` for the user to lock and unlock. To unlock the ``LockAppButton`` prompts the user the system dialogue for authentication, i. e. password, TouchID or FaceID.
+``LockAppButton`` is a button to lock and unlock an app using user authentication.
+
+To unlock the app this button uses the system dialog to authenticate the user with password, TouchID or FaceID.
 
 ```swift
 struct MyView: View {
@@ -47,37 +48,28 @@ struct MyView: View {
 }
 ```
 
-If no password is set, the ``LockAppButton`` does not unlock (secure by design). You can change this with the `View` method ``unlockAppWithoutAuthenticationIfPasswordNotSet()``. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
+For security reasons this button does not unlock the app if the password is not set. Use the `View` method ``LockAppButton/unlockAppWithoutAuthenticationIfPasswordNotSet()`` high enough in the view hierarchy to customize this button to unlock the app without authentication if the password is not set.
 
-```swift
-MyView()
-    .unlockAppWithoutAuthenticationIfPasswordNotSet()
-```
-        
-The ``LockAppButton`` unlocks without password prompt if the `View` method ``unlockAppWithoutAuthentication()`` is applied. This behaviour should stay the same for the whole app so apply it high enough in the view hirarchy.
-
-```swift
-MyView()
-    .unlockAppWithoutAuthentication()
-```
+For security reasons this button does only unlock the app with authentication. Use the `View` method ``LockAppButton/unlockAppWithoutAuthentication()`` high enough in the view hierarchy to customize this button to unlock the app without authentication.
      
-> Note: As of October 2022 DocC does not handle extensions to external symbols so ``unlockAppWithoutAuthentication()`` and ``unlockAppWithoutAuthenticationIfPasswordNotSet()`` are not properly included in this documentation. But you can access the documentation using quick help (right click on symbol > show quick help).
+### Convenience ViewModifiers
 
-### Convenience ViewMofifiers and View extensions
+``LockAppButton/ifAppIsUnlocked()`` is a `View` method to show the `View` only if the app is unlocked.
 
-The View extensions ``ifAppIsUnlocked()`` shows the `View` if and only if the app is unlocked.
+```swift
+MyView()
+    .ifAppIsUnlocked()
+```
 
-> Note: As of October 2022 DocC does not handle extensions to external symbols so ``ifAppIsUnlocked()`` is not properly included in this documentation. But you can access the documentation using quick help (right click on symbol > show quick help).
+### AppStorage Key
 
-### Access to the app property
+``appIsLockedAppStorageKey`` is a key for [`AppStorage`](https://developer.apple.com/documentation/swiftui/appstorage/)/[`UserDefaults`](https://developer.apple.com/documentation/foundation/userdefaults) to store persistently whether an app is locked or not.
 
-Use the framework constant ``appIsLockedAppStorageKey`` or its value as key to access the appIsLocked property via [`AppStorage`](https://developer.apple.com/documentation/swiftui/appstorage/) or [`UserDefaults`](https://developer.apple.com/documentation/foundation/userdefaults). This value will not change in future versions.
-
-This allows you to set and get the value in the app preferences.
+You can use this key for the `Settings.bundle`. The value will not change in future versions.
 
 ### Localization
 
-This modul is localized for:
+This framework is localized for:
 
 * English (default localization)
 * German
@@ -86,21 +78,21 @@ Feel free to help localizing it to more languages if this framework suits your n
 
 ## Topics
 
-### Propert Wrappers and Default Value
+### Property Wrapper AppIsLocked
 
 - ``AppIsLocked``
-- ``isUnlockedByDefault()``
+- ``LockAppButton/appIsUnlockedByDefault()``
 
-### Lock Button
+### LockAppButton
 
 - ``LockAppButton``
-- ``unlockAppWithoutAuthenticationIfPasswordNotSet()``
-- ``unlockAppWithoutAuthentication()``
+- ``LockAppButton/unlockAppWithoutAuthenticationIfPasswordNotSet()``
+- ``LockAppButton/unlockAppWithoutAuthentication()``
 
-### Convenience ViewMofifiers and View extensions
+### Convenience ViewModifiers
 
-- ``ifAppIsUnlocked()``
+- ``LockAppButton/ifAppIsUnlocked()``
 
-### App Storage Key
+### AppStorage Key
 
 - ``appIsLockedAppStorageKey``
