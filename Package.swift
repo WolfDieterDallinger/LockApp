@@ -30,9 +30,16 @@ let package = Package(
      localhost:8000/documentation/lockapp
      
      3.) Terminate web server in terminal with control-c.
+     
+     ---
+     
+     cd ~/Documents/Apps/RemoteSwiftPackages/LockApp
+     /Library/Developer/Toolchains/swift-5.8-DEVELOPMENT-SNAPSHOT-2023-02-23-a.xctoolchain/usr/bin/swift package update swift-docc-plugin
+     /Library/Developer/Toolchains/swift-5.8-DEVELOPMENT-SNAPSHOT-2023-02-23-a.xctoolchain/usr/bin/swift package --allow-writing-to-directory ./docs generate-documentation --target LockApp --disable-indexing --transform-for-static-hosting --hosting-base-path LockApp --output-path ./docs --include-extended-types
+
      */
     dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0"),
     ],
     targets: [
         .target(
