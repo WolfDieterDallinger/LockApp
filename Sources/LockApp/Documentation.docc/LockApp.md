@@ -30,7 +30,7 @@ struct MyView: View {
 }
 ```
 
-For security reasons the app is locked by default. Use the `View` method ``LockAppButton/appIsUnlockedByDefault()`` high enough in the view hierarchy to customize the app to be unlocked by default.
+For security reasons the app is locked by default. Use the `View` method ``swiftui/view/appIsUnlockedByDefault()`` high enough in the view hierarchy to customize the app to be unlocked by default.
 
 - Note: If you need a `Binding` with inverted boolean value use the operator ! from the Framework [BindingHelper](https://github.com/WolfDieterDallinger/BindingHelper).
 
@@ -48,13 +48,13 @@ struct MyView: View {
 }
 ```
 
-For security reasons this button does not unlock the app if the password is not set. Use the `View` method ``LockAppButton/unlockAppWithoutAuthenticationIfPasswordNotSet()`` high enough in the view hierarchy to customize this button to unlock the app without authentication if the password is not set.
+For security reasons this button does not unlock the app if the password is not set. Use the `View` method ``swiftui/view/unlockAppWithoutAuthenticationIfPasswordNotSet()`` high enough in the view hierarchy to customize this button to unlock the app without authentication if the password is not set.
 
-For security reasons this button does only unlock the app with authentication. Use the `View` method ``LockAppButton/unlockAppWithoutAuthentication()`` high enough in the view hierarchy to customize this button to unlock the app without authentication.
+For security reasons this button does only unlock the app with authentication. Use the `View` method ``swiftui/view/unlockAppWithoutAuthentication()`` high enough in the view hierarchy to customize this button to unlock the app without authentication.
      
 ### Convenience ViewModifiers
 
-``LockAppButton/ifAppIsUnlocked()`` is a `View` method to show the `View` only if the app is unlocked.
+``swiftui/view/ifAppIsUnlocked()`` is a `View` method to show the `View` only if the app is unlocked.
 
 ```swift
 MyView()
@@ -81,17 +81,17 @@ Feel free to help localizing it to more languages if this framework suits your n
 ### Property Wrapper AppIsLocked
 
 - ``AppIsLocked``
-- ``LockAppButton/appIsUnlockedByDefault()``
+- ``swiftui/view/appIsUnlockedByDefault()``
 
 ### LockAppButton
 
 - ``LockAppButton``
-- ``LockAppButton/unlockAppWithoutAuthenticationIfPasswordNotSet()``
-- ``LockAppButton/unlockAppWithoutAuthentication()``
+- ``swiftui/view/unlockAppWithoutAuthenticationIfPasswordNotSet()``
+- ``swiftui/view/unlockAppWithoutAuthentication()``
 
 ### Convenience ViewModifiers
 
-- ``LockAppButton/ifAppIsUnlocked()``
+- ``swiftui/view/ifAppIsUnlocked()``
 
 ### AppStorage Key
 
